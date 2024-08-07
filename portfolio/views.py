@@ -97,7 +97,8 @@ class GalleryDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["gallery"] = Gallery.objects.filter(category=context[self.context_object_name])
+        print(context)
+        context["gallery"] = Gallery.objects.filter(category=context.get('category'))
         return context
 
 # def gallery_single_view(request):

@@ -74,11 +74,13 @@ class GalleryCategory(models.Model):
 
     def __str__(self) -> str:
         return f"{self.name}"
+    
 class Gallery(models.Model):
     image=models.ImageField(upload_to='Images/Gallery')
     title=models.CharField(max_length=50)
     created_date=models.DateTimeField(auto_now=True)
     category = models.ForeignKey(GalleryCategory,on_delete=models.CASCADE)
+   
     def __str__(self):
         return f"{self.title} "
 
