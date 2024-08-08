@@ -1,6 +1,15 @@
 from django.forms import ModelForm
 from django import forms
-from .models import Contact
+from .models import Contact,Blog,Comment
+
+
+class CommentForm(ModelForm):
+    class Meta:
+        model = Comment
+        
+        fields = ['full_name','email','message']
+
+
 
 class ContactForm(ModelForm):
     class Meta:
@@ -32,3 +41,7 @@ class ContactForm(ModelForm):
         return self.cleaned_data
     
 
+class BlogForm(forms.ModelForm):
+    class Meta:
+        model = Blog
+        fields = ['title', 'image', 'content', 'category']

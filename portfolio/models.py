@@ -38,10 +38,13 @@ class Blog(models.Model):
     image = models.ImageField(upload_to='Images/blog')
     title = models.CharField(max_length=50)
     created_date = models.DateTimeField(auto_now=True)
-    description = models.TextField()
+    content = models.TextField()
+     
+    category = models.CharField(max_length=100)
 
-    def __str__(self):
-        return f"{self.title} {self.description} "
+    def __str__(self)-> str:
+        title = self.title[:10]
+        return f"{title}"
 class Comment(models.Model):
     image = models.ImageField(upload_to='images/', default='default.jpg') 
     full_name = models.CharField(max_length=50)
